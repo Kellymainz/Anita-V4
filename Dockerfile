@@ -14,5 +14,6 @@ EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
   CMD curl -f http://localhost:3000/ || exit 1
 
+# in your Dockerfile, change CMD to:
+CMD ["pm2-runtime", "start", "index.js", "--max-memory-restart", "200M"]
 
-CMD ["pm2-runtime", "start", "index.js"]
